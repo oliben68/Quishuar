@@ -1,0 +1,265 @@
+/*! sassyjson - v1.1.8 - 2014-06-01 */
+head::before {
+  content: '{"img-root": "/images/", "supported-languages": "["fr", "es", "en", "qu"]", "pages": "["welcome", "about", "help", "contact"]", "default-page": "welcome", "active-background-mask": "url({0}), url(/images/nav-button-active.png)", "inactive-background-mask": "url(/images/nav-button-inactive-mask.png), url({0}), url(/images/nav-button-inactive.png)", "hover-inactive-background-mask": "url({0}), url(/images/nav-button-inactive.png)", "active-nav-button-opacity": "0.95", "inactive-nav-button-opacity": "0.85", "busy-screen": {"css": {"font-size": "18px", "font-family": "Arial,Helvetica,sans", "border": "none", "padding": "15px", "backgroundColor": "#000", "-webkit-border-radius": "10px", "-moz-border-radius": "10px", "opacity": 0.5, "color": "#fff"}, "busy-gif": "busy.gif", "timeOut": 125}}'; }
+
+.lt-ie9 head {
+  font-family: '{"img-root": "/images/", "supported-languages": "["fr", "es", "en", "qu"]", "pages": "["welcome", "about", "help", "contact"]", "default-page": "welcome", "active-background-mask": "url({0}), url(/images/nav-button-active.png)", "inactive-background-mask": "url(/images/nav-button-inactive-mask.png), url({0}), url(/images/nav-button-inactive.png)", "hover-inactive-background-mask": "url({0}), url(/images/nav-button-inactive.png)", "active-nav-button-opacity": "0.95", "inactive-nav-button-opacity": "0.85", "busy-screen": {"css": {"font-size": "18px", "font-family": "Arial,Helvetica,sans", "border": "none", "padding": "15px", "backgroundColor": "#000", "-webkit-border-radius": "10px", "-moz-border-radius": "10px", "opacity": 0.5, "color": "#fff"}, "busy-gif": "busy.gif", "timeOut": 125}}'; }
+
+body {
+  background-image: url(/images/body.png);
+  background-size: 100%;
+  background-position: 0px -2071px; }
+
+.scroll-pane,
+.scroll-pane-arrows {
+  width: 100%;
+  height: 200px;
+  overflow: auto; }
+
+.horizontal-only {
+  height: auto;
+  max-height: 200px; }
+
+.calpamayo {
+  position: relative;
+  width: 780px;
+  height: 820px;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto; }
+
+._header {
+  background-repeat: no-repeat;
+  background-image: url(/images/header.png);
+  background-size: cover;
+  width: 745px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1; }
+
+._upper-body-top-layer {
+  background-image: url(/images/logo.png), url(/images/upper-body-top.png);
+  background-position: center center;
+  background-size: 100%;
+  width: 298px;
+  height: 302px;
+  opacity: 0.65;
+  position: absolute;
+  top: 117px;
+  left: 0; }
+
+._upper-body-bottom-layer {
+  background-image: url(/images/upper-body-bottom.png);
+  background-size: 100%;
+  width: 745px;
+  height: 540px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1; }
+
+._info-base, ._info, ._info-paragrah, ._paragraph-left, ._paragraph-right {
+  opacity: 0.85;
+  height: 273px; }
+
+._info {
+  position: absolute;
+  background-image: url(/images/info.png);
+  background-size: 100%;
+  width: 745px;
+  top: 377px;
+  left: 0; }
+
+._info-paragrah, ._paragraph-left, ._paragraph-right {
+  position: absolute;
+  width: 288.9px;
+  top: 7px;
+  height: 266px;
+  font-size: 11px;
+  text-align: justify;
+  font-family: Arial,Helvetica,sans; }
+
+._paragraph-left {
+  left: 12px; }
+
+._paragraph-right {
+  left: 320.9px; }
+
+._portrait {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 154px;
+  height: 295px;
+  position: absolute;
+  top: 367.5px;
+  left: 621.8px;
+  opacity: 0.95; }
+
+._legal {
+  background-image: url(/images/legal.png);
+  background-size: 100%;
+  width: 745px;
+  height: 28px;
+  opacity: 0.85;
+  position: absolute;
+  top: 665px;
+  left: 0;
+  font-size: 9px;
+  font-family: Arial,Helvetica,sans; }
+
+.language-selector {
+  opacity: 0.80;
+  position: absolute;
+  top: 661px;
+  left: 645px;
+  font-size: 9px;
+  font-family: Arial,Helvetica,sans;
+  z-index: 10; }
+
+._loading-container {
+  background-color: #ffffff;
+  width: 745px;
+  height: 540px;
+  opacity: 0.85;
+  position: relative; }
+
+._loading-container:before {
+  content: ' ';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  width: 25%; }
+
+._loading-container img {
+  vertical-align: middle;
+  display: inline-block; }
+
+/* Navigation buttons */
+.nav-buttons, .nav-state, .active-state, .inactive-state, .welcome-nav-button, .welcome-nav-button-fr, .welcome-nav-button-es, .welcome-nav-button-en, .welcome-nav-button-qu, .about-nav-button, .about-nav-button-fr, .about-nav-button-es, .about-nav-button-en, .about-nav-button-qu, .help-nav-button, .help-nav-button-fr, .help-nav-button-es, .help-nav-button-en, .help-nav-button-qu, .contact-nav-button, .contact-nav-button-fr, .contact-nav-button-es, .contact-nav-button-en, .contact-nav-button-qu {
+  width: 100px;
+  height: 87px;
+  position: absolute;
+  top: 15px;
+  background-repeat: no-repeat;
+  background-size: 100%; }
+
+.nav-state, .active-state, .inactive-state {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute; }
+
+.active-state {
+  opacity: "0.95"; }
+
+.inactive-state {
+  background-image: url("/images/nav-button-inactive.png");
+  opacity: 1; }
+
+.welcome-nav-button, .welcome-nav-button-fr, .welcome-nav-button-es, .welcome-nav-button-en, .welcome-nav-button-qu {
+  left: 320px; }
+
+.about-nav-button, .about-nav-button-fr, .about-nav-button-es, .about-nav-button-en, .about-nav-button-qu {
+  left: 425px; }
+
+.help-nav-button, .help-nav-button-fr, .help-nav-button-es, .help-nav-button-en, .help-nav-button-qu {
+  left: 530px; }
+
+.contact-nav-button, .contact-nav-button-fr, .contact-nav-button-es, .contact-nav-button-en, .contact-nav-button-qu {
+  left: 635px; }
+
+._logo, ._logo-fr, ._logo-es, ._logo-en, ._logo-qu {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 153px;
+  height: 58px;
+  top: 14px;
+  left: 24px;
+  opacity: 0.9; }
+
+._title, ._title-fr, ._title-es, ._title-en, ._title-qu {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 95px;
+  height: 30px;
+  top: 45px;
+  left: 200px;
+  opacity: 0.9; }
+
+.welcome-nav-button-fr {
+  background-image: "url(/images/fr/welcome.fr.png), url(/images/nav-button-active.png)"; }
+
+.about-nav-button-fr {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/fr/about.fr.png), url(/images/nav-button-inactive.png)"; }
+
+.help-nav-button-fr {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/fr/help.fr.png), url(/images/nav-button-inactive.png)"; }
+
+.contact-nav-button-fr {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/fr/contact.fr.png), url(/images/nav-button-inactive.png)"; }
+
+._logo-fr {
+  background-image: url(/images/fr/logo.fr.png); }
+
+._title-fr {
+  background-image: url(/images/fr/title.fr.png); }
+
+.welcome-nav-button-es {
+  background-image: "url(/images/es/welcome.es.png), url(/images/nav-button-active.png)"; }
+
+.about-nav-button-es {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/es/about.es.png), url(/images/nav-button-inactive.png)"; }
+
+.help-nav-button-es {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/es/help.es.png), url(/images/nav-button-inactive.png)"; }
+
+.contact-nav-button-es {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/es/contact.es.png), url(/images/nav-button-inactive.png)"; }
+
+._logo-es {
+  background-image: url(/images/es/logo.es.png); }
+
+._title-es {
+  background-image: url(/images/es/title.es.png); }
+
+.welcome-nav-button-en {
+  background-image: "url(/images/en/welcome.en.png), url(/images/nav-button-active.png)"; }
+
+.about-nav-button-en {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/en/about.en.png), url(/images/nav-button-inactive.png)"; }
+
+.help-nav-button-en {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/en/help.en.png), url(/images/nav-button-inactive.png)"; }
+
+.contact-nav-button-en {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/en/contact.en.png), url(/images/nav-button-inactive.png)"; }
+
+._logo-en {
+  background-image: url(/images/en/logo.en.png); }
+
+._title-en {
+  background-image: url(/images/en/title.en.png); }
+
+.welcome-nav-button-qu {
+  background-image: "url(/images/qu/welcome.qu.png), url(/images/nav-button-active.png)"; }
+
+.about-nav-button-qu {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/qu/about.qu.png), url(/images/nav-button-inactive.png)"; }
+
+.help-nav-button-qu {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/qu/help.qu.png), url(/images/nav-button-inactive.png)"; }
+
+.contact-nav-button-qu {
+  background-image: "url(/images/nav-button-inactive-mask.png), url(/images/qu/contact.qu.png), url(/images/nav-button-inactive.png)"; }
+
+._logo-qu {
+  background-image: url(/images/qu/logo.qu.png); }
+
+._title-qu {
+  background-image: url(/images/qu/title.qu.png); }
+
+/*# sourceMappingURL=calpamayo-desktop.css.map */

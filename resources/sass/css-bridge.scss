@@ -1,0 +1,90 @@
+@import 'SassyJSON';
+
+$supported-languages: (fr, es, en, qu);
+$content-pages: (welcome, about, help, contact);
+$img-root : '/images/';
+
+$nav-button__inactive-background: $img-root + 'nav-button-inactive.png';
+$nav-button__active-background: $img-root + 'nav-button-active.png';
+$nav-button__inactive-mask: $img-root + 'nav-button-inactive-mask.png';
+$active-nav-button-opacity: '0.95';
+$inactive-nav-button-opacity: '0.85';
+
+//
+//
+//
+//
+//
+//
+@function add-state-to-background($background-texture, 
+        $state-texture, 
+        $mask-texture : 'null') {
+    @if $mask-texture == 'null' {
+        @return 'url(#{$state-texture}), url(#{$background-texture})';
+    } @else {
+        @return 'url(#{$mask-texture}), url(#{$state-texture}), url(#{$background-texture})';
+    }
+}
+
+@function to_json_array($list) {
+    $results: null;
+    @for $i from 1 through length($list) {
+        $item: nth($list, $i);
+        $results : $results#{$item};
+        @if $i <= length($list) - 1 {
+            $results : $results#{','};
+        }
+    }
+    
+    @return 'Array[#{$results}]';
+}
+
+@function bridge-json-data() {
+    /*languages*/
+    
+    $languages : json_encode($supported-languages);
+    
+    $pages : json_encode($content-pages);
+    
+    $active-background-mask : add-state-to-background($nav-button__active-background, "{0}");
+    $inactive-background-mask : add-state-to-background($nav-button__inactive-background,
+                            "{0}",
+                            $nav-button__inactive-mask);
+    $hover-inactive-background-mask : add-state-to-background($nav-button__inactive-background, "{0}");
+
+    $json-data : (img-root: #{$img-root},
+        supported-languages: $languages,
+        pages: $pages,
+        default-page: #{nth($content-pages, 1)},
+        active-background-mask: #{$active-background-mask},
+        inactive-background-mask: #{$inactive-background-mask},
+        hover-inactive-background-mask: #{$hover-inactive-background-mask},
+        active-nav-button-opacity: #{$active-nav-button-opacity},
+        inactive-nav-button-opacity: #{$inactive-nav-button-opacity},
+        busy-screen: ($busy-screen));
+        
+    @return json-encode($json-data);
+}
+
+$busy-gif: "busy.gif";
+$busy-timeOut: 125;
+$busy-screen: (
+    css: (
+        font-size: 18px,
+        font-family: "Arial,Helvetica,sans",
+        border: 'none', 
+        padding: '15px', 
+        backgroundColor: '#000', 
+        '-webkit-border-radius': '10px', 
+        '-moz-border-radius': '10px', 
+        opacity: .5, 
+        color: '#fff' 
+    ),
+    busy-gif: $busy-gif,
+    timeOut: $busy-timeOut
+); 
+
+@if($supported-languages) {
+    head::before { content: bridge-json-data(); }
+    .lt-ie9 head { font-family: bridge-json-data(); }
+}

@@ -1,0 +1,32 @@
+items: 
+    - comment: " 3rd parties js "
+
+    - script:
+      type: "text/javascript"
+      src: "/js/jquery-1.11.2.min.js"
+
+    - script:
+      type: "text/javascript"
+      src: "/js/jquery.blockUI.js"
+
+    - script:
+      type: "text/javascript"
+      src: "/js/jquery.mousewheel.js"
+
+    - script:
+      type: "text/javascript"
+      src: "/js/jquery.jscrollpane.min.js"
+
+    - script:
+      type: "text/javascript"
+      src: "/js/jquery.ddslick.min.js"
+
+    - comment: " Calpamayo "
+
+    - script:
+      type: "text/javascript"
+      src: "/js/calpamayo-content.js"
+
+    - script:
+      type: "text/javascript"
+      src: "/js/calpamayo.js"

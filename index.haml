@@ -1,0 +1,41 @@
+- require './plugins/sassy.rb'
+!!!
+%html
+  %head 
+    %meta{:charset => "UTF-8"}
+    %title projet Quishuar
+
+    #{SASSY::insert_head_items("./resources/yaml/head.js.yaml")}
+
+    #{SASSY::insert_head_items("./resources/yaml/head.css.yaml")}
+  %body 
+    %link{:rel => "icon", :type => "image/png", :href => "favicon.png"}
+    .calpamayo
+      ._upper-body-bottom-layer
+      ._upper-body-top-layer
+      .language-selector#language-selector
+      ._header
+        ._logo#logo
+        ._title#title
+        .active-state#welcome
+        .inactive-state#about
+        .inactive-state#help
+        .inactive-state#contact
+      ._info
+        ._paragraph-left.info.scroll-pane-arrows#info-left
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+        ._paragraph-right.info.scroll-pane-arrows#info-right
+          %p="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lacinia ante a ipsum porttitor, elementum convallis sem maximus. Vivamus ornare, lorem ut porta hendrerit, quam massa consectetur lorem, ac ullamcorper est leo sed est. Vestibulum accumsan mi id augue tempus, non convallis enim semper. Sed ex dolor, tristique vel tortor id, rhoncus aliquet odio. Praesent lobortis euismod nulla. Fusce nec nunc eu nisl interdum ultrices. Praesent varius sed dui ut lacinia. Cras interdum, ante non condimentum vestibulum, magna sem interdum nunc, eu imperdiet ligula lacus et mauris."
+      ._portrait
+      ._legal
+        %p="&nbsp;&nbsp;&#169; Design By Ze Alsatian"
+        
+    #{SASSY::insert_as_is("./resources/html/body.script.html")}

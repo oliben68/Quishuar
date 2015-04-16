@@ -1,0 +1,28 @@
+items: 
+    - link:
+      rel: "stylesheet"
+      media: "only screen and (max-width: 400px)"
+      href: "/css/calpamayo-mobile.css"
+
+    - link:
+      rel: "stylesheet"
+      media: "only screen and (min-width: 401px)"
+      href: "/css/calpamayo-desktop.css"
+      source: "./resources/sass/calpamayo-desktop.scss"
+      output: "./html/css/calpamayo-desktop.css"
+
+    - comment: " 3rd parties css "
+
+    - link:
+      type: "text/css"
+      href: "/css/jquery.jscrollpane.css"
+      rel: "stylesheet"
+      media: "all"
+
+    - comment: " the styles for the lozenge theme "
+
+    - link:
+      type: "text/css"
+      href: "/css/jquery.jscrollpane.lozenge.css"
+      rel: "stylesheet"
+      media: "all"

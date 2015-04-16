@@ -1,0 +1,6 @@
+XCF/
+*.xcf
+.DS_Store
+.sass-cache/
+prereq.tmp
+index.html

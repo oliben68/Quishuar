@@ -1,0 +1,346 @@
+@import 'css-bridge';
+
+//-----------------
+// Global variables
+//-----------------
+$full_display__width: 780px;
+$full_display__height: 820px;
+
+$display__width: 745px;
+
+$header__height: 120px;
+
+$logo__width: 85px;
+$logo__height: 96px;
+$logo__top: 14px;
+$logo__left: 24px;
+
+$title__width: 125px;
+$title__height: 40px;
+$title__top: 45px;
+$title__left: 150px;
+
+$nav-button__width: 100px;
+$nav-button__height: 87px;
+$nav-button__top: 15px;
+$nav-button__spacing: 5px;
+$nav-button__left: 320px;
+
+$upper-body__top: 117px;
+$upper-body__visible-top: 260px;
+
+$upper-body-top-layer__percent_show: 40;
+$upper-body-top-layer__width: $display__width * $upper-body-top-layer__percent_show / 100;
+$upper-body-top-layer__height: 302px;
+
+$info__top: $upper-body__top + $upper-body__visible-top;
+$info__greater-percent-view: 0.05;
+$info__height: $upper-body__visible-top * (1 + $info__greater-percent-view);
+
+
+$paragraph__top: 7px;
+$paragraph__height: $info__height - $paragraph__top;
+
+$portrait__width : 154px;
+$portrait__height: 295px;
+$portrait__percent-overflow: 0.2;
+$portrait__left: $display__width
+                + ($portrait__width * ($portrait__percent-overflow - 1));
+$portrait__top: ($paragraph__height - $portrait__height) / 2 + $info__top + 5;
+
+$paragraph__left: 12px;
+$paragraph-divider__width: 20px;
+$paragraph-right-title__height: 35px;
+$paragraph__width: ($portrait__left - ($paragraph__left * 2) - $paragraph-divider__width) / 2;
+$paragraph-right__left: $paragraph__width + $paragraph__left + $paragraph-divider__width;
+
+$legal-info__space-division: 15px;
+$legal__height: 28px;
+$legal__top: $info__top + $info__height + $legal-info__space-division;
+
+$language-selector__top: $info__top + $info__height + $legal-info__space-division - 4;
+$language-selector__left: $display__width - $nav-button__width;
+
+$body-background-img: $img-root + 'body.png';
+$header-background-img: $img-root + 'header.png';
+$upper-body-top-layer-img: $img-root + 'upper-body-top.png';
+$logo-img: $img-root + 'logo.png';
+$upper-body-bottom-layer-img: $img-root + 'upper-body-bottom.png';
+$upper-body-bottom-layer-img: $img-root + 'upper-body-bottom.png';
+$info-img: $img-root + 'info.png';
+$legal-img: $img-root + 'legal.png';
+
+
+//-----------------
+// functions
+//-----------------
+@function nav-button-left($rank) {
+    @return $rank * ($nav-button__width + $nav-button__spacing) + $nav-button__left;
+}
+
+//-----------------
+// css styles
+//-----------------
+body {
+  background-image: url(#{$body-background-img});
+  background-size: 100%;
+  background-position: 0px -2071px;
+}
+.scroll-pane,
+.scroll-pane-arrows {
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+}
+
+.horizontal-only {
+  height: auto;
+  max-height: 200px;
+}
+
+.calpamayo {
+  position: relative;
+  width: $full_display__width;
+  height: $full_display__height;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+}
+
+._header {
+  background-repeat: no-repeat;
+  background-image: url(#{$header-background-img});
+  background-size: cover;
+  width: $display__width;
+  height: $header__height;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+._upper-body-top-layer {
+  background-image: url(#{$upper-body-top-layer-img});
+  background-position: center center;
+  background-size: 100%;
+  width: $upper-body-top-layer__width;
+  height: $upper-body-top-layer__height;
+  opacity: 0.65;
+  position: absolute;
+  top: $upper-body__top;
+  left: 0;
+}
+
+._upper-body-bottom-layer {
+  background-image: url(#{$upper-body-bottom-layer-img});
+  background-size: 100%;
+  width: $display__width;
+  height: 540px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+}
+
+._info-base {
+    opacity: 0.85;
+    height: $info__height;
+}
+
+._info {
+    @extend ._info-base;
+    position: absolute;
+    background-image: url(#{$info-img});
+    background-size: 100%;
+    width: $display__width;
+    top: $info__top;
+    left: 0;
+}
+
+._info-paragrah {
+    @extend ._info-base;
+    position: absolute;
+    width: $paragraph__width;
+    top: $paragraph__top;
+    height: $paragraph__height;
+
+    font-size: 11px;
+    text-align: justify;
+    font-family: Arial,Helvetica,sans;
+}
+
+._paragraph-left {
+    @extend ._info-paragrah;
+    left: $paragraph__left;
+}
+._paragraph-right {
+    @extend ._info-paragrah;
+    left: $paragraph-right__left;
+}
+
+._portrait {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: $portrait__width;
+  height: $portrait__height;
+  position: absolute;
+  top: $portrait__top;
+  left: $portrait__left;
+  opacity: 0.95;
+}
+
+._legal {
+  background-image: url(#{$legal-img});
+  background-size: 100%;
+  width: $display__width;
+  height: $legal__height;
+  opacity: 0.85;
+  position: absolute;
+  top: $legal__top;
+  left: 0;
+  font-size: 9px;
+  font-family: Arial,Helvetica,sans;
+}
+
+.language-selector {
+    opacity: 0.80;
+    position: absolute;
+    top: $language-selector__top;
+    left: $display__width - $nav-button__width;
+    font-size: 9px;
+    font-family: Arial,Helvetica,sans;
+    z-index: 10;
+}
+
+._loading-container {
+  background-color: #ffffff;
+  width: $display__width;
+  height: 540px;
+  opacity: 0.85;
+  position: relative;
+}
+
+._loading-container:before {
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width:25%;
+}
+
+._loading-container img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+._logo {
+    background-image: url(#{$logo-img});
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: $logo__width;
+    height: $logo__height;
+    top: $logo__top;
+    left: $logo__left;
+    opacity: 0.9;
+}
+
+._title {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: $title__width;
+    height: $title__height;
+    top: $title__top;
+    left: $title__left;
+    opacity: 0.9;
+} 
+
+//-------------------------------
+// navigation buttons
+//-------------------------------
+.nav-buttons {
+    width: $nav-button__width;
+    height: $nav-button__height;
+    position: absolute;
+    top: $nav-button__top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.nav-state {
+    @extend .nav-buttons;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+}
+
+.active-state {
+    @extend .nav-state;
+    opacity: $active-nav-button-opacity;
+}
+
+.inactive-state {
+    @extend .nav-state;
+    background-image: url($nav-button__inactive-background);
+    opacity: 1;
+}
+
+
+.welcome-nav-button {
+    @extend .nav-buttons;
+    left: nav-button-left(0);
+}
+
+.about-nav-button {
+    @extend .nav-buttons;
+    left: nav-button-left(1);
+}
+
+.help-nav-button {
+    @extend .nav-buttons;
+    left: nav-button-left(2);
+}
+
+.contact-nav-button {
+    @extend .nav-buttons;
+    left: nav-button-left(3);
+}
+
+//
+// for each supported language...
+//
+@each $current-lang in $supported-languages {
+    .welcome-nav-button-#{$current-lang} {
+        @extend .welcome-nav-button;
+        background-image: add-state-to-background($nav-button__active-background,
+                            #{$img-root + $current-lang + '/welcome.' + $current-lang + '.png'});
+    }
+
+    .about-nav-button-#{$current-lang} {
+        @extend .about-nav-button;
+        background-image: add-state-to-background($nav-button__inactive-background,
+                            #{$img-root + $current-lang + '/about.' + $current-lang + '.png'},
+                            $nav-button__inactive-mask);
+    }
+
+    .help-nav-button-#{$current-lang} {
+        @extend .help-nav-button;
+        background-image: add-state-to-background($nav-button__inactive-background,
+                            #{$img-root + $current-lang + '/help.' + $current-lang + '.png'},
+                            $nav-button__inactive-mask);
+    }
+
+    .contact-nav-button-#{$current-lang} {
+        @extend .contact-nav-button;
+        background-image: add-state-to-background($nav-button__inactive-background,
+                            #{$img-root + $current-lang + '/contact.' + $current-lang + '.png'},
+                            $nav-button__inactive-mask);
+    }
+
+    ._title-#{$current-lang} {
+        @extend ._title;
+        background-image: url(#{$img-root + $current-lang + '/title.' + $current-lang + '.png'});
+    }
+}

@@ -1,0 +1,30 @@
+<script>
+    $(document).ready(function() {
+        $('#language-selector').ddslick({
+            data: getLanguageSelectorData(),
+            selectText: "Language",
+            defaultSelectedIndex: 0,
+            imagePosition:"right",
+            width : 92,
+            background: "transparent",
+            onSelected: function(selection){
+                setLanguage(selection.selectedData.value);
+            }
+        });
+        $('#language-selector').addClass("language-selector");
+
+        $(nav_buttons_query).mouseenter(function() {
+            mouseHover($(this), "enter");
+        });
+        $(nav_buttons_query).mouseout(function() {
+            mouseHover($(this), "leave");
+        });
+        $(nav_buttons_query).click(function(event) {
+            onClick($(this, event));
+        });
+        $('.paragraph-left').jScrollPane(
+        {
+            horizontalGutter: 10
+        });
+    });
+</script>

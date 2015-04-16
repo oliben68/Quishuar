@@ -2,12 +2,13 @@ version=$(shell cat .ver)
 tar_name=$(shell cat .tar)
 pwd=$(shell pwd)/
 web_root=$(pwd)$(shell cat .deploy)
+sys_tmp=$(shell cat .tmp)
 
 HAML_GEM = $(shell gem list haml|grep 'haml' -c)
 HAML_FILE = index.haml
 HTML_FILE = index.html
 HTML_LOC = $(pwd)/html
-HTML_TMP_LOC = /tmp/html
+HTML_TMP_LOC = $(sys_tmp)/html
 TARBALL = $(tar_name)$(version).gz
 
 .phony: all $(TARBALL)
@@ -15,7 +16,7 @@ TARBALL = $(tar_name)$(version).gz
 all: $(TARBALL)
 
 $(TARBALL): haml.tmp
-	@cp -fr $(HTML_LOC) /tmp/
+	@cp -fr $(HTML_LOC)  $(sys_tmp)/
 	@find $(HTML_TMP_LOC) -type f -print0 | tar -czvf $(pwd)$(TARBALL) --null -T -
 	@echo BUILD COMPLETED
 

@@ -36,7 +36,7 @@ ifeq '$(HAML_GEM)' '0'
 endif
 	@touch prereq.tmp
 
-deploy: $(ARTIFACTS)$(TARBALL)
+deploy: $(TARBALL)
 ifneq ("$(wildcard $(web_root))","")
 	$(shell rm -rf $(web_root))
 endif

@@ -1,7 +1,7 @@
 version=$(shell cat .ver)
 tar_name=$(shell cat .tar)
 pwd=$(shell pwd)/
-web_root=$(pwd)$(shell cat .deploy)
+web_root=$(shell cat .deploy)
 sys_tmp=$(shell cat .tmp)
 
 HAML_GEM = $(shell gem list haml|grep 'haml' -c)
@@ -37,12 +37,14 @@ endif
 	@touch prereq.tmp
 
 deploy: $(TARBALL)
+	@echo DEPLOYING $(TARBALL) to $(web_root) 
 ifneq ("$(wildcard $(web_root))","")
-	$(shell rm -rf $(web_root))
-endif
+	$(shell rm -rf $(web_root)/*)
+else
 	$(shell mkdir $(web_root))
-	$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
-	@touch deploy
+endif
+	@tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root)
+	@echo DEPLOYMENT COMPLETED
 
 clean:
 	@rm *.tmp
@@ -50,11 +52,3 @@ clean:
 	@rm $(HTML_FILE)
 	@rm -rf $(HTML_TMP_LOC)
 	@echo FINISHED CLEAN-UP
-
-clean-deploy:
-	@rm -rf ./web
-	@rm prereq.tmp
-	@rm $(TARBALL)
-	@rm $(HTML_FILE)
-	@rm -rf $(HTML_TMP_LOC)
-	@echo FINISHED CLEAN-UP	

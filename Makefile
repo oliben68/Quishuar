@@ -9,7 +9,8 @@ HAML_FILE = index.haml
 HTML_FILE = index.html
 HTML_LOC = $(pwd)/html
 HTML_TMP_LOC = $(sys_tmp)/html
-TARBALL = ./artifacts/$(tar_name)$(version).gz
+TARBALL = $(tar_name)$(version).gz
+ARTIFACTS = ./artifacts/
 
 .phony: all $(TARBALL)
 
@@ -18,6 +19,7 @@ all: $(TARBALL)
 $(TARBALL): haml.tmp
 	@cp -fr $(HTML_LOC)  $(sys_tmp)/
 	@find $(HTML_TMP_LOC) -type f -print0 | tar -czvf $(pwd)$(TARBALL) --null -T -
+	@cp $(TARBALL) $(ARTIFACTS)
 	@echo BUILD COMPLETED
 
 haml.tmp: prereq.tmp
@@ -32,10 +34,10 @@ ifeq '$(HAML_GEM)' '0'
 endif
 	@touch prereq.tmp
 
-deploy: $(TARBALL)
+deploy: $(ARTIFACTS)$(TARBALL)
 	$(shell if [ -d "$(web_root)" ]; then rm -rf $(web_root))
 	$(shell mkdir $(web_root))
-	$(shell tar -zxvf $(TARBALL) --strip-components=2 -C $(web_root))
+	$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
 
 clean:
 	@rm haml.tmp

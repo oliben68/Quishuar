@@ -42,6 +42,7 @@ ifneq ("$(wildcard $(web_root))","")
 endif
 	$(shell mkdir $(web_root))
 	$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
+	@touch deploy
 
 clean:
 	@rm *.tmp

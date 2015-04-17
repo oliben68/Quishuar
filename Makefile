@@ -17,7 +17,9 @@ ARTIFACTS = ./artifacts/
 all: $(TARBALL)
 
 $(TARBALL): haml.tmp
-	@cp -fr $(HTML_LOC)  $(sys_tmp)/
+	@cp $(HTML_FILE) $(HTML_LOC)/
+	@cp -fr $(HTML_LOC) $(sys_tmp)/
+	@rm $(HTML_LOC)/$(HTML_FILE)
 	@find $(HTML_TMP_LOC) -type f -print0 | tar -czvf $(pwd)$(TARBALL) --null -T -
 	@cp $(TARBALL) $(ARTIFACTS)
 	@echo BUILD COMPLETED
@@ -40,9 +42,16 @@ deploy: $(ARTIFACTS)$(TARBALL)
 	$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
 
 clean:
-	@rm haml.tmp
-	@rm prereq.tmp
+	@rm *.tmp
 	@rm $(TARBALL)
 	@rm $(HTML_FILE)
 	@rm -rf $(HTML_TMP_LOC)
 	@echo FINISHED CLEAN-UP
+
+clean-deploy:
+	@rm -rf ./web
+	@rm prereq.tmp
+	@rm $(TARBALL)
+	@rm $(HTML_FILE)
+	@rm -rf $(HTML_TMP_LOC)
+	@echo FINISHED CLEAN-UP	

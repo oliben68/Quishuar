@@ -47,11 +47,13 @@ class SassyClass
                             item.has_key?("href") and item.has_key?("source") and 
                             item.has_key?("output")
                             
-                            sass_transform(item["source"], item["output"])
+                            sass_transform(item["_source"], item["_output"])
                         end
                         output += "<%s" % [tag]
                         item.keys.each do |key|
-                            output += " %s=\"%s\"" % [key, item[key]]
+                        	if !key.start_with? '_'
+                            	output += " %s=\"%s\"" % [key, item[key]]
+                            end
                         end
                         output += (if tag == "script" then "></%s>\n" % [tag] else " />\n" end)
                     else

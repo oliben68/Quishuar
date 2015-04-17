@@ -8,8 +8,8 @@ items:
       rel: "stylesheet"
       media: "only screen and (min-width: 401px)"
       href: "/css/calpamayo-desktop.css"
-      source: "./resources/sass/calpamayo-desktop.scss"
-      output: "./html/css/calpamayo-desktop.css"
+      _source: "./resources/sass/calpamayo-desktop.scss"
+      _output: "./html/css/calpamayo-desktop.css"
 
     - comment: " 3rd parties css "
 

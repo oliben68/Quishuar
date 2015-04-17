@@ -9,7 +9,7 @@ HAML_FILE = index.haml
 HTML_FILE = index.html
 HTML_LOC = $(pwd)/html
 HTML_TMP_LOC = $(sys_tmp)/html
-TARBALL = $(tar_name)$(version).gz
+TARBALL = ./artifacts/$(tar_name)$(version).gz
 
 .phony: all $(TARBALL)
 

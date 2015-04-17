@@ -37,7 +37,7 @@ endif
 	@touch prereq.tmp
 
 deploy: $(ARTIFACTS)$(TARBALL)
-	$(shell if [ -d "$(web_root)" ]; then rm -rf $(web_root))
+	$(shell if [ -d "$(web_root)" ]; then rm -rf $(web_root) fi)
 	$(shell mkdir $(web_root))
 	$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
 

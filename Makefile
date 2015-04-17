@@ -40,8 +40,8 @@ deploy: $(ARTIFACTS)$(TARBALL)
 ifneq ("$(wildcard $(web_root))","")
 	$(shell rm -rf $(web_root))
 endif
-$(shell mkdir $(web_root))
-$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
+	$(shell mkdir $(web_root))
+	$(shell tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root))
 
 clean:
 	@rm *.tmp

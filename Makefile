@@ -44,6 +44,7 @@ else
 	$(shell mkdir $(web_root))
 endif
 	@tar -zxvf $(ARTIFACTS)$(TARBALL) --strip-components=2 -C $(web_root)
+	@chmod -R +r $(web_root)
 	@echo DEPLOYMENT COMPLETED
 
 clean:

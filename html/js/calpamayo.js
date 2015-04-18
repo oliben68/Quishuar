@@ -100,8 +100,8 @@ function getLanguageSelectorData() {
 }
 
 function setLanguage(lang) {
-    current_language = lang;
-
+	current_language = lang
+	
     // Getting language data
     $.each($(__content__.languages), function() {
         current_language_data = this;
@@ -114,13 +114,14 @@ function setLanguage(lang) {
         setNavButtonAspect($(this));
     });
 
-    // Change logo
-    $("#logo").removeClass("_logo-" + current_language);
-    $("#logo").addClass("_logo-" + lang);
-
     // Change title
-    $("#title").removeClass("_title-" + current_language);
-    $("#title").addClass("_title-" + lang);
+    classes = $("#title").attr('class').split(' ');
+    
+    if (classes.length == 2) {
+    	$("#title").removeClass(classes[1]);
+    }
+    $("#title").addClass("_title-" + current_language);
+    //$("#title").css("background-image", "title." + current_language + ".png");
 
     // Change text(s)
     done_waiting();

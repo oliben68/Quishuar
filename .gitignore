@@ -1,4 +1,4 @@
-XCF/
+*.map
 *.xcf
 .DS_Store
 .sass-cache/
